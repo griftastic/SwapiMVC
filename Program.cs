@@ -1,6 +1,10 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpClient("swapi", client =>
+    {
+        client.BaseAddress = new Uri("https://swapi.dev/api/");
+    });
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -25,3 +29,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
