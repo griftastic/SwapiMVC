@@ -1,7 +1,6 @@
 @using SwapiMVC.Controllers;
 @using SwapiMVC.Models;
 
-
 @model ResultsViewModel<PeopleViewModel>
 @{
     ViewData["Title"] = "People";
@@ -13,6 +12,7 @@
         @foreach (var person in Model.Results)
         {
             <div class="item-container">
+                <a asp-action="Person" asp-route-id="@person.Id" class="item">
                 <div class="item">
                 <h4>@person.Name</h4>
                 <div class="item-traits">
@@ -20,7 +20,7 @@
                     <p>Height: @person.Height</p>
                     <p>Born: @person.BirthYear</p>
                 </div>
-                </div>
+                </a>
             </div>
         }
     </div>
